@@ -1,0 +1,6 @@
+Oracle Apex Workspace Credentials
+
+Workspace:	orac_hoff_304
+Username:	hoffin426@gmail.com
+Environment:	https://apex.oracle.com/pls/apex/
+Password:	S*@ul74
