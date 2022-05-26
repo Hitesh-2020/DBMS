@@ -1,0 +1,68 @@
+Select * from tab
+
+Select * from employees
+
+SELECT * FROM departments
+
+SELECT DEPARTMENT_ID,SALARY 
+FROM employees
+
+SELECT salary,salary + 20 
+FROM employees
+
+SELECT salary,0.1 * salary + 20 
+FROM employees
+
+SELECT salary,0.1 * (salary + 20) 
+FROM employees
+
+SELECT salary,0.1 * (salary + 20), unknown 
+FROM employees
+
+SELECT salary,0.1 * (salary + 20) 
+FROM employees
+
+SELECT department_id, manager_id 
+FROM employees
+
+SELECT department_id, location_id 
+FROM departments
+
+SELECT last_name, commission_pct 
+FROM employees
+
+SELECT salary, 0.1 * (salary + 21) 
+FROM employees
+
+SELECT last_name, commission_pct,manager_id 
+FROM employees
+
+SELECT last_name, commission_pct,manager_id 
+FROM employees
+
+SELECT salary, commission_pct, salary * commission_pct 
+FROM employees
+
+SELECT salary, commission_pct, salary * commission_pct 
+FROM employees
+
+SELECT first_name, last_name, last_name AS name, commission_pct AS com 
+FROM employees
+
+SELECT first_name || job_id AS employee_rank 
+FROM employees
+
+SELECT first_name || job_id AS "employee_rank" 
+FROM employees
+
+SELECT salary "Monthly_salary", 12 * salary "Annual_Salary" 
+FROM employees
+
+SELECT first_name || last_name || ' is a ' || job_id "Employee Details" 
+FROM employees
+
+SELECT department_id 
+FROM employees
+
+SELECT DISTINCT department_id 
+FROM employees

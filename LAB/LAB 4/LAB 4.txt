@@ -1,0 +1,23 @@
+SELECT last_name 
+FROM employees
+WHERE last_name LIKE '%a%' and last_name LIKE '%e%';
+
+SELECT last_name,job_id,salary
+FROM employees
+WHERE (job_id LIKE 'ST_CLERK' OR job_id LIKE 'SA_REP') AND salary NOT IN (2500,3500,7000);
+
+SELECT employee_id,last_name,salary,ROUND(1.155*salary) AS "New Salary"
+FROM employees;
+
+SELECT last_name||' earns '||salary||' monthly but wants '||3*salary AS "Dream Salaries"
+FROM employees;
+
+SELECT last_name,LPAD(salary,15,'$') AS "SALARY"
+FROM employees;
+
+SELECT last_name,hire_date, TO_CHAR((NEXT_DAY(ADD_MONTHS(hire_date,6),'MONDAY')),'Day, "the" Ddspth "of" Month, YYYY') AS "REVIEW"
+FROM employees;
+
+SELECT last_name,hire_date,TO_CHAR(hire_date,'Day') AS "DAY"
+FROM employees
+ORDER BY TO_CHAR(hire_date-1,'d');

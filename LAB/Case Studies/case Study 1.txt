@@ -1,0 +1,91 @@
+CREATE TABLE products
+(
+    pname varchar(20),
+    pno number(10) PRIMARY KEY,
+    sp real,
+    mname varchar(20)           
+);
+
+CREATE TABLE clients
+(
+    cno number(10) PRIMARY KEY,
+    cname varchar(20),
+    total_balance real,
+    cstate varchar(20),
+    city varchar(20),
+    pincode number(10)
+);
+
+CREATE TABLE salesman
+(
+    sno number(10) PRIMARY KEY,
+    sname varchar(20),
+    city varchar(20),
+    sstate varchar(20),
+    pincode number(10),
+    totalqty real
+);
+
+CREATE TABLE orders
+(
+    orderno number(10) PRIMARY KEY,
+    sodate date,
+    deldate date,
+    billedpay real,
+    cno number(10),
+    sno number(10),
+    
+    CHECK (deldate > sodate),
+    FOREIGN KEY (cno) REFERENCES clients(cno),
+    FOREIGN KEY (sno) REFERENCES salesman(sno)
+);
+
+CREATE TABLE productdetails
+(
+    pno number(10),
+    sno number(10),
+    productrate real,
+    FOREIGN KEY (pno) REFERENCES products (pno),
+    FOREIGN KEY (sno) REFERENCES salesman (sno),
+
+    PRIMARY KEY (pno,sno)
+);
+
+CREATE TABLE saleto
+(   
+    pno number(10),
+    cno number(10),
+    FOREIGN KEY (pno) REFERENCES products (pno),
+    FOREIGN KEY (cno) REFERENCES clients (cno),
+
+    PRIMARY KEY (pno,cno)
+);
+
+
+INSERT INTO products VALUES('slipper',100,500,'paragon');
+INSERT INTO products VALUES('Laptop',102,200000,'hp');
+INSERT INTO products VALUES('voodo doll',103,3000,'vermillion');
+
+
+INSERT INTO orders VALUES(401,'04/02/2022','04/20/2022',2000,203,301);
+INSERT INTO orders VALUES(400,'04/01/2022','04/28/2022',2000,200,300);
+
+
+INSERT INTO salesman VALUES(300,'merchantA','coal','bituminous',130012,500);
+INSERT INTO salesman VALUES(301,'merchantb','capricon','valley',140029,400);
+
+
+INSERT INTO clients VALUES(200,'jason',50,'kalos','lumious',110011);
+INSERT INTO clients VALUES(201,'raph',500,'hoenn','mauville',120022);
+INSERT INTO clients values(203,'nathon',60,'alola','hauoli',120011);
+
+
+INSERT INTO saleto VALUES(100,203);
+INSERT INTO saleto VALUES(103,200);
+
+
+INSERT INTO productdetails VALUES(102,300,3420);
+INSERT INTO productdetails VALUES(103,301,3400);
+
+
+
